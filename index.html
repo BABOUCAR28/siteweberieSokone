@@ -3,800 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Librerie Sokone - Fournitures Scolaires & Livres</title>
+    <title>Librerie Sokone - Librairie-Papeterie Professionnelle</title>
+    <meta name="description" content="Librairie-papeterie à Sokone : fournitures scolaires, livres, cahiers et matériel de bureau depuis 2015. Commandez en ligne avec livraison.">
+    <meta name="keywords" content="librairie Sokone, papeterie, fournitures scolaires, livres, cahiers, matériel bureau">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Variables et styles globaux */
-        :root {
-            --primary-color: #8b4513; /* Brun livre */
-            --secondary-color: #2c5530; /* Vert foncé */
-            --accent-color: #d4a76a; /* Doré */
-            --dark-color: #1a1a1a;
-            --light-color: #f9f7f3;
-            --text-color: #333;
-            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            --transition: all 0.3s ease;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-color);
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            line-height: 1.2;
-        }
-        
-        h2 {
-            font-size: 2.2rem;
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-        }
-        
-        p {
-            margin-bottom: 1.2rem;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        section {
-            padding: 5rem 0;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 12px 28px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            font-family: 'Georgia', serif;
-        }
-        
-        .btn:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2::after {
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        /* Header */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(255, 255, 255, 0.97);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-        
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-        }
-        
-        .logo i {
-            color: var(--secondary-color);
-            margin-right: 10px;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark-color);
-            font-weight: 600;
-            transition: var(--transition);
-            font-size: 1.05rem;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-        
-        .cart-icon {
-            position: relative;
-            margin-left: 2rem;
-        }
-        
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-        }
-        
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-color);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .hero h1 {
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
-        
-        /* Catégories */
-        .categories {
-            background-color: #f5f1ea;
-        }
-        
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .category-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            padding: 2rem 1.5rem;
-            cursor: pointer;
-        }
-        
-        .category-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .category-card.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-        
-        .category-card.active h3 {
-            color: white;
-        }
-        
-        .category-icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-        }
-        
-        .category-card.active .category-icon {
-            color: white;
-        }
-        
-        /* Produits */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .product-card {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .product-img {
-            height: 200px;
-            overflow: hidden;
-            background-color: #f0f0f0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .product-img i {
-            font-size: 4rem;
-            color: var(--primary-color);
-        }
-        
-        .product-info {
-            padding: 1.5rem;
-        }
-        
-        .product-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            min-height: 3.5rem;
-        }
-        
-        .product-details {
-            color: var(--primary-color);
-            font-style: italic;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
-        }
-        
-        .product-price {
-            font-weight: 700;
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .product-stock {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
-        }
-        
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-        }
-        
-        .quantity-btn {
-            background-color: #f0f0f0;
-            border: none;
-            width: 30px;
-            height: 30px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .quantity-input {
-            width: 50px;
-            height: 30px;
-            text-align: center;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin: 0 10px;
-        }
-        
-        /* Panier */
-        .cart-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .cart-content {
-            background-color: white;
-            width: 90%;
-            max-width: 800px;
-            max-height: 80vh;
-            border-radius: 8px;
-            padding: 2rem;
-            overflow-y: auto;
-        }
-        
-        .cart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 1rem;
-        }
-        
-        .close-cart {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark-color);
-        }
-        
-        .cart-items {
-            margin-bottom: 2rem;
-        }
-        
-        .cart-item {
-            display: flex;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .cart-item-details {
-            flex: 1;
-        }
-        
-        .cart-item-title {
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-        
-        .cart-item-price {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .cart-item-quantity {
-            display: flex;
-            align-items: center;
-            margin: 0 1rem;
-        }
-        
-        .cart-item-quantity .quantity-btn {
-            width: 25px;
-            height: 25px;
-        }
-        
-        .quantity {
-            margin: 0 10px;
-        }
-        
-        .remove-item {
-            background: none;
-            border: none;
-            color: #ff6b6b;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-        
-        .cart-total {
-            text-align: right;
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 2rem;
-        }
-        
-        .cart-actions {
-            display: flex;
-            justify-content: space-between;
-        }
-        
-        /* Inventaire Table */
-        .inventory-section {
-            background-color: #f5f1ea;
-        }
-        
-        .inventory-table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            box-shadow: var(--shadow);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .inventory-table th, .inventory-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .inventory-table th {
-            background-color: var(--primary-color);
-            color: white;
-            font-weight: 600;
-        }
-        
-        .inventory-table tr:hover {
-            background-color: #f9f9f9;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-            margin-top: 2rem;
-        }
-        
-        /* Contact */
-        .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
-        
-        .contact-info {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-        }
-        
-        .contact-info h3 {
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-        
-        .contact-detail {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-detail i {
-            color: var(--primary-color);
-            margin-right: 1rem;
-            margin-top: 5px;
-            font-size: 1.2rem;
-        }
-        
-        .opening-hours {
-            margin-top: 2rem;
-        }
-        
-        .opening-hours p {
-            margin-bottom: 0.5rem;
-        }
-        
-        .map-container {
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .map-container iframe {
-            width: 100%;
-            height: 400px;
-            border: 0;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            margin-bottom: 1rem;
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-        }
-        
-        .footer-logo i {
-            color: var(--accent-color);
-            margin-right: 10px;
-        }
-        
-        .social-links {
-            display: flex;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            margin-right: 10px;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .social-links a:hover {
-            background-color: var(--primary-color);
-        }
-        
-        .footer-links h3 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: #ddd;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-color);
-            padding-left: 5px;
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
-        /* Responsive */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.4rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-            }
-            
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 2rem 0;
-                box-shadow: var(--shadow);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: var(--transition);
-                z-index: 999;
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-            }
-            
-            .nav-links li {
-                margin: 1rem 0;
-            }
-            
-            .cart-icon {
-                margin-left: 0;
-            }
-            
-            .hero {
-                height: 80vh;
-            }
-            
-            section {
-                padding: 3rem 0;
-            }
-            
-            .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-        }
-        
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.6rem;
-            }
-            
-            .hero {
-                height: 70vh;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cart-item {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .cart-actions {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .cart-actions .btn {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .inventory-table th, .inventory-table td {
-                padding: 0.5rem;
-                font-size: 0.9rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- En-tête avec navigation -->
     <header>
         <div class="container header-container">
             <a href="#" class="logo">
-                <i class="fas fa-book"></i> Librerie de Monsieur CORY SENE
+                <i class="fas fa-book"></i>
+                <div class="logo-text">
+                    <span class="logo-main">Librairie Sokone</span>
+                    <span class="logo-sub">Monsieur Cory Sène</span>
+                </div>
             </a>
             
             <div class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>
             </div>
             
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#categories">Catégories</a></li>
-                <li><a href="#produits">Produits</a></li>
-                <li><a href="#inventaire">Inventaire Complet</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="cart-icon" id="cartIcon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </li>
-            </ul>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#categories">Catégories</a></li>
+                    <li><a href="#produits">Produits</a></li>
+                    <li><a href="#inventaire">Inventaire</a></li>
+                    <li><a href="#commande">Commander</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="cart-icon" id="cartIcon">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cartCount">0</span>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <!-- Panier -->
+    <!-- Panier Modal -->
     <div class="cart-modal" id="cartModal">
         <div class="cart-content">
             <div class="cart-header">
-                <h2>Votre Panier</h2>
+                <h2><i class="fas fa-shopping-cart"></i> Votre Panier</h2>
                 <button class="close-cart" id="closeCart">&times;</button>
             </div>
             
             <div class="cart-items" id="cartItems">
-                <!-- Les articles du panier seront générés par JavaScript -->
                 <p id="emptyCartMessage">Votre panier est vide</p>
             </div>
             
             <div class="cart-total">
-                Total: <span id="cartTotal">0 FCFA</span>
+                <span>Total:</span>
+                <span id="cartTotal">0 FCFA</span>
             </div>
             
             <div class="cart-actions">
-                <button class="btn" id="continueShopping">Continuer vos achats</button>
-                <button class="btn" id="checkoutBtn">Commander</button>
+                <button class="btn btn-secondary" id="continueShopping">Continuer vos achats</button>
+                <button class="btn btn-primary" id="checkoutBtn">Finaliser la commande</button>
             </div>
         </div>
     </div>
 
     <!-- Section Hero -->
     <section class="hero" id="accueil">
-        <div class="container hero-content">
-            <h1>Librerie Sokone</h1>
-            <p>Votre librairie-papeterie à Sokone. Fournitures scolaires, livres, cahiers, matériel de bureau et bien plus. Depuis 2015, nous servons la communauté avec des produits de qualité.</p>
-            <a href="#produits" class="btn">Voir nos produits</a>
+        <div class="hero-overlay">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Librairie-Papeterie <span class="highlight">Sokone</span></h1>
+                    <p class="hero-subtitle">Depuis 2015, votre partenaire éducatif et professionnel à Sokone</p>
+                    <p class="hero-description">Fournitures scolaires, livres, cahiers, matériel de bureau et articles de papeterie. Qualité et service garantis.</p>
+                    <div class="hero-buttons">
+                        <a href="#produits" class="btn btn-primary">Découvrir nos produits</a>
+                        <a href="#commande" class="btn btn-secondary">Commander en ligne</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Librairie moderne avec livres et fournitures">
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Section Catégories -->
     <section id="categories" class="categories">
         <div class="container">
-            <div class="section-title">
-                <h2>Catégories de Produits</h2>
-                <p>Choisissez une catégorie pour filtrer les produits</p>
+            <div class="section-header">
+                <h2>Nos Catégories</h2>
+                <p>Découvrez notre large gamme de produits</p>
             </div>
             
             <div class="categories-grid" id="categoriesGrid">
@@ -806,11 +104,11 @@
     </section>
 
     <!-- Section Produits -->
-    <section id="produits">
+    <section id="produits" class="products">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>Nos Produits</h2>
-                <p>Découvrez notre sélection de produits disponibles à l'achat</p>
+                <p>Une sélection de qualité pour tous vos besoins</p>
             </div>
             
             <div class="products-grid" id="productsGrid">
@@ -819,12 +117,89 @@
         </div>
     </section>
 
-    <!-- Section Inventaire Complet -->
+    <!-- Formulaire de Commande -->
+    <section id="commande" class="order-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Commande en Ligne</h2>
+                <p>Remplissez ce formulaire pour commander vos produits</p>
+            </div>
+            
+            <div class="order-container">
+                <div class="order-summary">
+                    <h3>Résumé de votre commande</h3>
+                    <div class="order-items" id="orderItems">
+                        <p class="empty-order">Votre panier est vide. Ajoutez des produits ci-dessus.</p>
+                    </div>
+                    <div class="order-total">
+                        <strong>Total:</strong> <span id="orderTotal">0 FCFA</span>
+                    </div>
+                </div>
+                
+                <form class="order-form" id="orderForm">
+                    <h3>Informations personnelles</h3>
+                    
+                    <div class="form-group">
+                        <label for="fullName">Nom complet *</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Téléphone *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Adresse de livraison *</label>
+                        <textarea id="address" name="address" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deliveryMethod">Méthode de livraison *</label>
+                        <select id="deliveryMethod" name="deliveryMethod" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="pickup">Retrait en magasin</option>
+                            <option value="delivery_sokone">Livraison à Sokone (500 FCFA)</option>
+                            <option value="delivery_region">Livraison dans la région (2000 FCFA)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paymentMethod">Moyen de paiement *</label>
+                        <select id="paymentMethod" name="paymentMethod" required>
+                            <option value="">Sélectionnez</option>
+                            <option value="cash">Espèces à la livraison</option>
+                            <option value="orange">Orange Money</option>
+                            <option value="wave">Wave</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Notes supplémentaires</label>
+                        <textarea id="notes" name="notes" rows="3" placeholder="Informations supplémentaires pour votre commande..."></textarea>
+                    </div>
+                    
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary btn-large">Valider la commande</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Inventaire -->
     <section id="inventaire" class="inventory-section">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>Inventaire Complet</h2>
-                <p>Liste détaillée de tous nos produits avec prix unitaires et totaux</p>
+                <p>Vue d'ensemble de notre stock disponible</p>
             </div>
             
             <div class="table-container">
@@ -832,601 +207,155 @@
                     <thead>
                         <tr>
                             <th>Produit</th>
+                            <th>Catégorie</th>
                             <th>Quantité</th>
-                            <th>Prix Unitaire (FCFA)</th>
-                            <th>Prix Total (FCFA)</th>
+                            <th>Prix Unitaire</th>
+                            <th>Valeur Totale</th>
                         </tr>
                     </thead>
                     <tbody id="inventoryBody">
-                        <!-- Les lignes d'inventaire seront générées par JavaScript -->
+                        <!-- Les lignes seront générées par JavaScript -->
                     </tbody>
                 </table>
+            </div>
+            
+            <div class="inventory-total">
+                <div class="total-card">
+                    <h3>Valeur totale de l'inventaire</h3>
+                    <p class="total-amount" id="totalInventoryValue">0 FCFA</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Section Contact -->
-    <section id="contact">
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="section-title">
+            <div class="section-header">
                 <h2>Contact & Informations</h2>
-                <p>Venez nous rendre visite à la librairie</p>
+                <p>Nous sommes à votre service</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Notre Lebrerie</h3>
-                    <div class="contact-details">
-                        <div class="contact-detail">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <p><strong>Adresse</strong></p>
-                                <p>Avenue des Livres, Quartier Centre<br>Sokone, Sénégal</p>
+                    <div class="contact-card">
+                        <h3><i class="fas fa-store"></i> Notre Librairie</h3>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h4>Adresse</h4>
+                                    <p>Avenue des Livres, Quartier Centre<br>Sokone, Sénégal</p>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <p><strong>Téléphone</strong></p>
-                                <p>+221 78 017 64 27</p>
-                                <p>+221 77 030 28 37 (WhatsApp)</p>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h4>Téléphone</h4>
+                                    <p>+221 78 017 64 27</p>
+                                    <p>+221 77 030 28 37 (WhatsApp)</p>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="contact-detail">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <p><strong>Email</strong></p>
-                                <p>senebaboucar49@gmail.com</p>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h4>Email</h4>
+                                    <p>senebaboucar49@gmail.com</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="opening-hours">
-                        <h3>Horaires d'ouverture</h3>
-                        <p><strong>Lundi - Vendredi:</strong> 8h30 - 18h30</p>
-                        <p><strong>Samedi:</strong> 9h00 - 18h00</p>
-                        <p><strong>Dimanche:</strong> 10h00 - 14h00</p>
+                        <h3><i class="fas fa-clock"></i> Horaires d'ouverture</h3>
+                        <div class="hours-grid">
+                            <div class="hour-item">
+                                <span>Lundi - Vendredi</span>
+                                <span>8h30 - 18h30</span>
+                            </div>
+                            <div class="hour-item">
+                                <span>Samedi</span>
+                                <span>9h00 - 18h00</span>
+                            </div>
+                            <div class="hour-item">
+                                <span>Dimanche</span>
+                                <span>10h00 - 14h00</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.284332931491!2d-16.37786172469206!3d14.730804785707472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec177e5769ab08b%3A0x4b2a3b2c5d5c6b7d!2sSokone%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2sfr!4v1691245678901!5m2!1sfr!2sfr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.284332931491!2d-16.37786172469206!3d14.730804785707472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec177e5769ab08b%3A0x4b2a3b2c5d5c6b7d!2sSokone%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2sfr!4v1691245678901!5m2!1sfr!2sfr" 
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pied de page -->
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
+                <div class="footer-section">
                     <a href="#" class="footer-logo">
-                        <i class="fas fa-book"></i> Librerie de Monsieur CORY SENE
+                        <i class="fas fa-book"></i>
+                        <div>
+                            <span class="logo-main">Librairie Sokone</span>
+                            <span class="logo-sub">Depuis 2015</span>
+                        </div>
                     </a>
-                    <p>Votre librairie-papeterie à Sokone. Nous vendons des fournitures scolaires, livres, cahiers et matériel de bureau depuis 2015. Livraison possible à Sokone et environs.</p>
+                    <p class="footer-description">Votre librairie-papeterie de confiance à Sokone. Nous nous engageons à fournir des produits de qualité et un service exceptionnel.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-links">
+                <div class="footer-section">
                     <h3>Navigation</h3>
-                    <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#categories">Catégories</a></li>
-                        <li><a href="#produits">Produits</a></li>
-                        <li><a href="#inventaire">Inventaire</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                    <ul class="footer-links">
+                        <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="#categories"><i class="fas fa-chevron-right"></i> Catégories</a></li>
+                        <li><a href="#produits"><i class="fas fa-chevron-right"></i> Produits</a></li>
+                        <li><a href="#commande"><i class="fas fa-chevron-right"></i> Commander</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-links">
-                    <h3>Catégories populaires</h3>
-                    <ul>
-                        <li><a href="#categories" data-category="cahiers">Cahiers</a></li>
-                        <li><a href="#categories" data-category="fournitures">Fournitures</a></li>
-                        <li><a href="#categories" data-category="livres">Livres Scolaires</a></li>
-                        <li><a href="#categories" data-category="bureau">Matériel Bureau</a></li>
-                        <li><a href="#categories" data-category="romans">Romans</a></li>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Sokone, Sénégal</li>
+                        <li><i class="fas fa-phone"></i> +221 78 017 64 27</li>
+                        <li><i class="fas fa-envelope"></i> senebaboucar49@gmail.com</li>
                     </ul>
                 </div>
                 
-                <div class="footer-links">
+                <div class="footer-section">
                     <h3>Moyens de paiement</h3>
-                    <ul>
-                        <li>Espèces</li>
-                        <li>Orange Money</li>
-                        <li>Wave</li>
-                        <li>Carte bancaire</li>
-                    </ul>
+                    <div class="payment-methods">
+                        <span class="payment-method"><i class="fas fa-money-bill-wave"></i> Espèces</span>
+                        <span class="payment-method"><i class="fab fa-orange"></i> Orange Money</span>
+                        <span class="payment-method"><i class="fas fa-wave-square"></i> Wave</span>
+                        <span class="payment-method"><i class="fas fa-credit-card"></i> Carte bancaire</span>
+                    </div>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>&copy; 2023 Librerie Sokone - Librairie-Papeterie. Tous droits réservés.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Librairie Sokone - Tous droits réservés.</p>
+                <p>Conçu avec <i class="fas fa-heart"></i> pour la communauté de Sokone</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Menu mobile
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuToggle.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Fermer le menu mobile en cliquant sur un lien
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-            });
-        });
-        
-        // Données des catégories basées sur les produits fournis
-        const categoriesData = [
-            { id: 'tous', name: 'Tous les produits', icon: 'fas fa-box' },
-            { id: 'cahiers', name: 'Cahiers', icon: 'fas fa-book' },
-            { id: 'fournitures', name: 'Fournitures', icon: 'fas fa-pencil-alt' },
-            { id: 'livres', name: 'Livres Scolaires', icon: 'fas fa-graduation-cap' },
-            { id: 'bureau', name: 'Matériel Bureau', icon: 'fas fa-print' },
-            { id: 'romans', name: 'Romans/Littérature', icon: 'fas fa-feather-alt' },
-            { id: 'papeterie', name: 'Papeterie', icon: 'fas fa-file' }
-        ];
-        
-        // Données des produits basées sur votre inventaire
-        // J'ai organisé les données et ajouté des prix unitaires raisonnables pour les produits sans prix
-        const productsData = [
-            // Cahiers
-            { id: 1, name: "Cahier 100 pages", details: "Paquet de 10", price: 400, quantity: 3, unit: "paquets", category: "cahiers", total: 1200, icon: "fas fa-book" },
-            { id: 2, name: "Cahier Travaux Pratiques 100 pages", details: "Avec feuilles blanches", price: 500, quantity: 9, unit: "paquets", category: "cahiers", total: 4500, icon: "fas fa-book" },
-            { id: 3, name: "Cahier TP 100 pages", details: "Sans feuilles blanches", price: 1000, quantity: 9, unit: "paquets", category: "cahiers", total: 9000, icon: "fas fa-book" },
-            { id: 4, name: "Cahier TP 200 pages", details: "Avec feuilles blanches", price: 1200, quantity: 5, unit: "paquets", category: "cahiers", total: 6000, icon: "fas fa-book" },
-            { id: 5, name: "Cahier TP 200 pages", details: "Sans feuilles blanches", price: 1500, quantity: 7, unit: "paquets", category: "cahiers", total: 10500, icon: "fas fa-book" },
-            { id: 6, name: "Cahier 200 pages", details: "Paquet de 10", price: 400, quantity: 8, unit: "paquets", category: "cahiers", total: 3200, icon: "fas fa-book" },
-            { id: 7, name: "Cahier 48 pages", details: "Paquet de 10", price: 150, quantity: 7, unit: "paquets", category: "cahiers", total: 1050, icon: "fas fa-book" },
-            { id: 8, name: "Cahier 32 pages", details: "Paquet de 10", price: 125, quantity: 39, unit: "paquets", category: "cahiers", total: 4875, icon: "fas fa-book" },
-            { id: 9, name: "Cahier A4 600 pages", details: "Relié", price: 3500, quantity: 4, unit: "cahiers", category: "cahiers", total: 14000, icon: "fas fa-book" },
-            { id: 10, name: "Cahier dessin 16 pages", details: "Paquet de 5", price: 800, quantity: 1, unit: "paquets", category: "cahiers", total: 800, icon: "fas fa-palette" },
-            { id: 11, name: "Cahier dessin 32 pages", details: "Paquet de 5", price: 1200, quantity: 2, unit: "paquets", category: "cahiers", total: 2400, icon: "fas fa-palette" },
-            
-            // Fournitures
-            { id: 12, name: "Crayon noir", details: "Paquet de 12", price: 300, quantity: 6, unit: "paquets", category: "fournitures", total: 1800, icon: "fas fa-pencil-alt" },
-            { id: 13, name: "Gomme", details: "Paquet de 10", price: 500, quantity: 2, unit: "paquets", category: "fournitures", total: 1000, icon: "fas fa-eraser" },
-            { id: 14, name: "Crayon couleur", details: "Grand modèle", price: 1500, quantity: 1, unit: "paquets", category: "fournitures", total: 1500, icon: "fas fa-palette" },
-            { id: 15, name: "Rapporteur", details: "Plastique", price: 250, quantity: 9, unit: "unités", category: "fournitures", total: 2250, icon: "fas fa-drafting-compass" },
-            { id: 16, name: "Équerre", details: "Plastique", price: 250, quantity: 5, unit: "unités", category: "fournitures", total: 1250, icon: "fas fa-drafting-compass" },
-            { id: 17, name: "Règle", details: "30 cm", price: 200, quantity: 2, unit: "unités", category: "fournitures", total: 400, icon: "fas fa-ruler" },
-            { id: 18, name: "Compas", details: "Métal", price: 500, quantity: 3, unit: "unités", category: "fournitures", total: 1500, icon: "fas fa-drafting-compass" },
-            { id: 19, name: "Boite de craie couleur", details: "12 couleurs", price: 750, quantity: 20, unit: "boîtes", category: "fournitures", total: 15000, icon: "fas fa-chalkboard" },
-            { id: 20, name: "Boite de craie blanche", details: "100 craies", price: 500, quantity: 6, unit: "paquets", category: "fournitures", total: 3000, icon: "fas fa-chalkboard" },
-            
-            // Matériel de bureau
-            { id: 21, name: "Scotch mural", details: "Grand rouleau", price: 800, quantity: 10, unit: "rouleaux", category: "bureau", total: 8000, icon: "fas fa-tape" },
-            { id: 22, name: "Scotch GM plast", details: "Transparent", price: 700, quantity: 8, unit: "rouleaux", category: "bureau", total: 5600, icon: "fas fa-tape" },
-            { id: 23, name: "Enveloppe moyen format", details: "Paquet de 50", price: 1500, quantity: 7, unit: "paquets", category: "bureau", total: 10500, icon: "fas fa-envelope" },
-            { id: 24, name: "Fiche bristol", details: "Paquet de 100", price: 1750, quantity: 13, unit: "paquets", category: "bureau", total: 22750, icon: "fas fa-sticky-note" },
-            { id: 25, name: "Chemise dossier", details: "Cartonnée", price: 100, quantity: 3, unit: "paquets", category: "bureau", total: 300, icon: "fas fa-folder" },
-            { id: 26, name: "Registre d'appel", details: "300 pages", price: 1000, quantity: 11, unit: "registres", category: "bureau", total: 11000, icon: "fas fa-clipboard-list" },
-            { id: 27, name: "Livret de famille", details: "Modèle officiel", price: 500, quantity: 18, unit: "livrets", category: "bureau", total: 9000, icon: "fas fa-passport" },
-            { id: 28, name: "HORSE TAMPON", details: "Encre bleue", price: 2500, quantity: 1, unit: "paquets", category: "bureau", total: 2500, icon: "fas fa-stamp" },
-            
-            // Livres scolaires (sélection)
-            { id: 29, name: "Ami et Rémi Lecture CP", details: "Manuel scolaire", price: 2500, quantity: 6, unit: "livres", category: "livres", total: 15000, icon: "fas fa-graduation-cap" },
-            { id: 30, name: "Ami et Rémi Grammaire CM1", details: "Manuel scolaire", price: 2800, quantity: 23, unit: "livres", category: "livres", total: 64400, icon: "fas fa-graduation-cap" },
-            { id: 31, name: "Mathématiques CM2", details: "Collection excellence", price: 3000, quantity: 5, unit: "livres", category: "livres", total: 15000, icon: "fas fa-calculator" },
-            { id: 32, name: "Go for english 3e", details: "Student's book", price: 3500, quantity: 24, unit: "livres", category: "livres", total: 84000, icon: "fas fa-language" },
-            { id: 33, name: "Le français en 6e", details: "Manuel scolaire", price: 3200, quantity: 8, unit: "livres", category: "livres", total: 25600, icon: "fas fa-book-open" },
-            { id: 34, name: "Histoire 2e étape", details: "Cours élémentaires", price: 2800, quantity: 15, unit: "livres", category: "livres", total: 42000, icon: "fas fa-landmark" },
-            
-            // Romans/Littérature
-            { id: 35, name: "Le Pagne Noir", details: "Bernard Dadié", price: 2000, quantity: 7, unit: "livres", category: "romans", total: 14000, icon: "fas fa-feather-alt" },
-            { id: 36, name: "Une Vie de Boy", details: "Ferdinand Oyono", price: 2200, quantity: 3, unit: "livres", category: "romans", total: 6600, icon: "fas fa-feather-alt" },
-            { id: 37, name: "Soundiata", details: "L'épopée mandingue", price: 2500, quantity: 2, unit: "livres", category: "romans", total: 5000, icon: "fas fa-feather-alt" },
-            { id: 38, name: "Sous l'Orage", details: "Seydou Badian", price: 2000, quantity: 3, unit: "livres", category: "romans", total: 6000, icon: "fas fa-feather-alt" },
-            { id: 39, name: "Vol de Nuit", details: "Antoine de Saint-Exupéry", price: 1800, quantity: 11, unit: "livres", category: "romans", total: 19800, icon: "fas fa-feather-alt" },
-            { id: 40, name: "Phèdre", details: "Jean Racine", price: 1500, quantity: 4, unit: "livres", category: "romans", total: 6000, icon: "fas fa-feather-alt" }
-        ];
-        
-        // Panier
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        
-        // Afficher les catégories
-        const categoriesGrid = document.getElementById('categoriesGrid');
-        
-        function displayCategories() {
-            categoriesGrid.innerHTML = '';
-            
-            categoriesData.forEach(category => {
-                const categoryElement = document.createElement('div');
-                categoryElement.className = 'category-card';
-                categoryElement.setAttribute('data-category', category.id);
-                
-                if (category.id === 'tous') {
-                    categoryElement.classList.add('active');
-                }
-                
-                categoryElement.innerHTML = `
-                    <div class="category-icon">
-                        <i class="${category.icon}"></i>
-                    </div>
-                    <h3>${category.name}</h3>
-                `;
-                
-                categoriesGrid.appendChild(categoryElement);
-            });
-        }
-        
-        // Afficher les produits
-        const productsGrid = document.getElementById('productsGrid');
-        let currentCategory = 'tous';
-        
-        function displayProducts(category = 'tous') {
-            productsGrid.innerHTML = '';
-            currentCategory = category;
-            
-            const filteredProducts = category === 'tous' 
-                ? productsData 
-                : productsData.filter(product => product.category === category);
-            
-            if (filteredProducts.length === 0) {
-                productsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; font-size: 1.2rem;">Aucun produit disponible dans cette catégorie pour le moment.</p>';
-                return;
-            }
-            
-            filteredProducts.forEach(product => {
-                const productElement = document.createElement('div');
-                productElement.className = 'product-card';
-                productElement.setAttribute('data-category', product.category);
-                
-                productElement.innerHTML = `
-                    <div class="product-img">
-                        <i class="${product.icon}"></i>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title">${product.name}</h3>
-                        <p class="product-details">${product.details}</p>
-                        <div class="product-price">${product.price.toLocaleString()} FCFA</div>
-                        <div class="product-stock">En stock: ${product.quantity} ${product.unit}</div>
-                        <div class="quantity-controls">
-                            <button class="quantity-btn decrease-quantity" data-id="${product.id}">-</button>
-                            <input type="number" class="quantity-input" id="quantity-${product.id}" value="1" min="1" max="${product.quantity}">
-                            <button class="quantity-btn increase-quantity" data-id="${product.id}">+</button>
-                        </div>
-                        <button class="btn add-to-cart" data-id="${product.id}">Ajouter au panier</button>
-                    </div>
-                `;
-                
-                productsGrid.appendChild(productElement);
-            });
-        }
-        
-        // Afficher l'inventaire complet
-        const inventoryBody = document.getElementById('inventoryBody');
-        
-        function displayInventory() {
-            inventoryBody.innerHTML = '';
-            
-            // Trier les produits par catégorie
-            const sortedProducts = [...productsData].sort((a, b) => {
-                const catA = categoriesData.findIndex(cat => cat.id === a.category);
-                const catB = categoriesData.findIndex(cat => cat.id === b.category);
-                return catA - catB;
-            });
-            
-            sortedProducts.forEach(product => {
-                const row = document.createElement('tr');
-                
-                row.innerHTML = `
-                    <td>${product.name}<br><small>${product.details}</small></td>
-                    <td>${product.quantity} ${product.unit}</td>
-                    <td>${product.price.toLocaleString()} FCFA</td>
-                    <td>${product.total.toLocaleString()} FCFA</td>
-                `;
-                
-                inventoryBody.appendChild(row);
-            });
-            
-            // Ajouter la ligne de total
-            const totalValue = productsData.reduce((sum, product) => sum + product.total, 0);
-            const totalRow = document.createElement('tr');
-            totalRow.style.fontWeight = 'bold';
-            totalRow.style.backgroundColor = '#f0f0f0';
-            
-            totalRow.innerHTML = `
-                <td colspan="3" style="text-align: right;">Valeur totale de l'inventaire:</td>
-                <td>${totalValue.toLocaleString()} FCFA</td>
-            `;
-            
-            inventoryBody.appendChild(totalRow);
-        }
-        
-        // Initialiser l'affichage
-        displayCategories();
-        displayProducts();
-        displayInventory();
-        
-        // Gestion des catégories
-        categoriesGrid.addEventListener('click', function(e) {
-            const categoryCard = e.target.closest('.category-card');
-            if (!categoryCard) return;
-            
-            // Retirer la classe active de toutes les catégories
-            document.querySelectorAll('.category-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            
-            // Ajouter la classe active à la catégorie cliquée
-            categoryCard.classList.add('active');
-            
-            // Afficher les produits de la catégorie sélectionnée
-            const category = categoryCard.getAttribute('data-category');
-            displayProducts(category);
-        });
-        
-        // Gestion des catégories dans le footer
-        document.querySelectorAll('.footer-links a[data-category]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const category = this.getAttribute('data-category');
-                
-                // Retirer la classe active de toutes les catégories
-                document.querySelectorAll('.category-card').forEach(card => {
-                    card.classList.remove('active');
-                });
-                
-                // Ajouter la classe active à la bonne catégorie
-                document.querySelector(`.category-card[data-category="${category}"]`).classList.add('active');
-                
-                // Afficher les produits de la catégorie
-                displayProducts(category);
-                
-                // Faire défiler jusqu'à la section produits
-                document.getElementById('produits').scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-        
-        // Gestion des quantités dans les produits
-        productsGrid.addEventListener('click', function(e) {
-            const target = e.target;
-            
-            if (target.classList.contains('increase-quantity')) {
-                const productId = target.getAttribute('data-id');
-                const input = document.getElementById(`quantity-${productId}`);
-                const max = parseInt(input.max);
-                if (parseInt(input.value) < max) {
-                    input.value = parseInt(input.value) + 1;
-                }
-            } else if (target.classList.contains('decrease-quantity')) {
-                const productId = target.getAttribute('data-id');
-                const input = document.getElementById(`quantity-${productId}`);
-                if (parseInt(input.value) > 1) {
-                    input.value = parseInt(input.value) - 1;
-                }
-            } else if (target.classList.contains('add-to-cart')) {
-                const productId = target.getAttribute('data-id');
-                const input = document.getElementById(`quantity-${productId}`);
-                const quantity = parseInt(input.value);
-                addToCart(productId, quantity);
-            }
-        });
-        
-        // Mettre à jour le compteur du panier
-        function updateCartCount() {
-            const cartCount = document.getElementById('cartCount');
-            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-            cartCount.textContent = totalItems;
-        }
-        
-        // Mettre à jour le panier dans le localStorage
-        function saveCartToLocalStorage() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-        
-        // Ajouter un produit au panier
-        function addToCart(productId, quantity = 1) {
-            const product = productsData.find(p => p.id == productId);
-            
-            if (!product) return;
-            
-            // Vérifier le stock
-            if (product.quantity <= 0) {
-                alert(`Désolé, "${product.name}" est en rupture de stock.`);
-                return;
-            }
-            
-            // Vérifier si la quantité demandée est disponible
-            if (quantity > product.quantity) {
-                alert(`Nous n'avons que ${product.quantity} ${product.unit} de "${product.name}" en stock.`);
-                return;
-            }
-            
-            // Vérifier si le produit est déjà dans le panier
-            const existingItem = cart.find(item => item.id == productId);
-            
-            if (existingItem) {
-                // Vérifier si on dépasse le stock
-                if (existingItem.quantity + quantity > product.quantity) {
-                    alert(`Nous n'avons que ${product.quantity} ${product.unit} de "${product.name}" en stock.`);
-                    return;
-                }
-                existingItem.quantity += quantity;
-            } else {
-                cart.push({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    details: product.details,
-                    quantity: quantity
-                });
-            }
-            
-            // Mettre à jour l'interface
-            updateCartCount();
-            saveCartToLocalStorage();
-            
-            // Afficher un message de confirmation
-            alert(`${quantity} ${product.name} a été ajouté à votre panier !`);
-        }
-        
-        // Gestion du panier
-        const cartIcon = document.getElementById('cartIcon');
-        const cartModal = document.getElementById('cartModal');
-        const closeCart = document.getElementById('closeCart');
-        const cartItems = document.getElementById('cartItems');
-        const cartTotal = document.getElementById('cartTotal');
-        const emptyCartMessage = document.getElementById('emptyCartMessage');
-        const continueShopping = document.getElementById('continueShopping');
-        const checkoutBtn = document.getElementById('checkoutBtn');
-        
-        // Ouvrir le panier
-        cartIcon.addEventListener('click', openCart);
-        
-        // Fermer le panier
-        closeCart.addEventListener('click', closeCartModal);
-        continueShopping.addEventListener('click', closeCartModal);
-        
-        // Fermer le panier en cliquant à l'extérieur
-        cartModal.addEventListener('click', function(e) {
-            if (e.target === cartModal) {
-                closeCartModal();
-            }
-        });
-        
-        function openCart() {
-            cartModal.style.display = 'flex';
-            renderCart();
-        }
-        
-        function closeCartModal() {
-            cartModal.style.display = 'none';
-        }
-        
-        // Afficher le contenu du panier
-        function renderCart() {
-            cartItems.innerHTML = '';
-            
-            if (cart.length === 0) {
-                emptyCartMessage.style.display = 'block';
-                cartTotal.textContent = '0 FCFA';
-                return;
-            }
-            
-            emptyCartMessage.style.display = 'none';
-            
-            let total = 0;
-            
-            cart.forEach((item, index) => {
-                const product = productsData.find(p => p.id == item.id);
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                const cartItemElement = document.createElement('div');
-                cartItemElement.className = 'cart-item';
-                
-                cartItemElement.innerHTML = `
-                    <div class="cart-item-details">
-                        <div class="cart-item-title">${item.name}</div>
-                        <div class="cart-item-details-small">${item.details}</div>
-                        <div class="cart-item-price">${item.price.toLocaleString()} FCFA</div>
-                    </div>
-                    <div class="cart-item-quantity">
-                        <button class="quantity-btn decrease-quantity-cart" data-index="${index}">-</button>
-                        <span class="quantity">${item.quantity}</span>
-                        <button class="quantity-btn increase-quantity-cart" data-index="${index}">+</button>
-                    </div>
-                    <div class="cart-item-total">${itemTotal.toLocaleString()} FCFA</div>
-                    <button class="remove-item" data-index="${index}"><i class="fas fa-trash"></i></button>
-                `;
-                
-                cartItems.appendChild(cartItemElement);
-            });
-            
-            cartTotal.textContent = `${total.toLocaleString()} FCFA`;
-        }
-        
-        // Gestion des quantités dans le panier
-        cartItems.addEventListener('click', function(e) {
-            const target = e.target.closest('button');
-            if (!target) return;
-            
-            const index = parseInt(target.getAttribute('data-index'));
-            
-            if (target.classList.contains('decrease-quantity-cart')) {
-                if (cart[index].quantity > 1) {
-                    cart[index].quantity--;
-                } else {
-                    cart.splice(index, 1);
-                }
-            } else if (target.classList.contains('increase-quantity-cart')) {
-                const product = productsData.find(p => p.id == cart[index].id);
-                if (cart[index].quantity < product.quantity) {
-                    cart[index].quantity++;
-                } else {
-                    alert(`Nous n'avons que ${product.quantity} ${product.unit} de "${product.name}" en stock.`);
-                }
-            } else if (target.classList.contains('remove-item')) {
-                cart.splice(index, 1);
-            }
-            
-            updateCartCount();
-            saveCartToLocalStorage();
-            renderCart();
-        });
-        
-        // Gestion de la commande
-        checkoutBtn.addEventListener('click', function() {
-            if (cart.length === 0) {
-                alert('Votre panier est vide !');
-                return;
-            }
-            
-            // Préparer le message pour WhatsApp
-            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-            const itemsList = cart.map(item => `${item.quantity}x ${item.name} (${item.details}) - ${(item.price * item.quantity).toLocaleString()} FCFA`).join('%0A');
-            
-            const phoneNumber = "221771234567"; // Numéro de téléphone pour WhatsApp
-            const message = `Bonjour, je souhaite commander les produits suivants :%0A%0A${itemsList}%0A%0ATotal : ${total.toLocaleString()} FCFA.%0A%0ANom : ________%0ATéléphone : ________%0AAdresse : ________`;
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-            
-            // Ouvrir WhatsApp
-            window.open(whatsappUrl, '_blank');
-            
-            // Pour la démo, on affiche aussi un message
-            alert(`Commande préparée ! Total: ${total.toLocaleString()} FCFA\n\nVous allez être redirigé vers WhatsApp pour finaliser votre commande.`);
-            
-            // Vider le panier après commande (optionnel)
-            // cart = [];
-            // updateCartCount();
-            // saveCartToLocalStorage();
-            // renderCart();
-            closeCartModal();
-        });
-        
-        // Initialiser le compteur du panier
-        updateCartCount();
-        
-        // Changement de style de l'en-tête au défilement
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.08)';
-            } else {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.97)';
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.05)';
-            }
-        });
-    </script>
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
