@@ -21,8 +21,9 @@ const orderForm = document.getElementById('orderForm');
 const orderItems = document.getElementById('orderItems');
 const orderTotal = document.getElementById('orderTotal');
 
-// Menu mobile
-menuToggle.addEventListener('click', () => {
+// Menu mobile - CORRECTION
+menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     navLinks.classList.toggle('active');
     menuToggle.innerHTML = navLinks.classList.contains('active') 
         ? '<i class="fas fa-times"></i>' 
@@ -35,6 +36,14 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         navLinks.classList.remove('active');
         menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
     });
+});
+
+// Fermer le menu en cliquant à l'extérieur
+document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !menuToggle.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    }
 });
 
 // Initialiser l'affichage
@@ -356,6 +365,7 @@ function showNotification(message, type = 'info') {
         align-items: center;
         gap: 10px;
         animation: slideIn 0.3s ease;
+        max-width: 400px;
     `;
     
     document.body.appendChild(notification);
