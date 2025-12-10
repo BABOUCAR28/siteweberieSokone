@@ -1,3 +1,8 @@
+// ============================================
+// FICHIER: data.js
+// Description: Toutes les données du site
+// ============================================
+
 // Données des catégories
 const categoriesData = [
     { id: 'tous', name: 'Tous les produits', icon: 'fas fa-box', color: '#2c5530' },
@@ -59,4 +64,72 @@ const productsData = [
     { id: 38, name: "Sous l'Orage", details: "Seydou Badian", price: 2000, quantity: 3, unit: "livres", category: "romans", total: 6000, icon: "fas fa-feather-alt", stockStatus: "in-stock" },
     { id: 39, name: "Vol de Nuit", details: "Antoine de Saint-Exupéry", price: 1800, quantity: 11, unit: "livres", category: "romans", total: 19800, icon: "fas fa-feather-alt", stockStatus: "in-stock" },
     { id: 40, name: "Phèdre", details: "Jean Racine", price: 1500, quantity: 4, unit: "livres", category: "romans", total: 6000, icon: "fas fa-feather-alt", stockStatus: "in-stock" }
+];
+
+// Images de la galerie
+// IMPORTANT: Remplacez ces URLs par vos vraies images uploadées sur ImgBB ou autre
+const galleryImages = [
+    {
+        id: 1,
+        url: "https://via.placeholder.com/400x300/8b4513/ffffff?text=Ami+et+Remi",
+        title: "Livres scolaires - Ami et Rémi",
+        description: "Manuel de lecture pour CP et CM2",
+        category: "livres"
+    },
+    {
+        id: 2,
+        url: "https://via.placeholder.com/400x300/2c5530/ffffff?text=Mathematiques",
+        title: "Mathématiques 4e",
+        description: "Collection Excellence",
+        category: "livres"
+    },
+    {
+        id: 3,
+        url: "https://via.placeholder.com/400x300/d4a76a/ffffff?text=Go+for+English",
+        title: "Go for English 4e",
+        description: "Workbook pour l'anglais",
+        category: "livres"
+    },
+    {
+        id: 4,
+        url: "https://via.placeholder.com/400x300/8b4513/ffffff?text=Notre+Magasin",
+        title: "Notre espace de vente",
+        description: "Étagères avec livres et fournitures",
+        category: "magasin"
+    },
+    {
+        id: 5,
+        url: "https://via.placeholder.com/400x300/2c5530/ffffff?text=Bureau",
+        title: "Espace bureautique",
+        description: "Fournitures de bureau",
+        category: "magasin"
+    },
+    {
+        id: 6,
+        url: "https://via.placeholder.com/400x300/d4a76a/ffffff?text=Geometrie",
+        title: "Section géométrie",
+        description: "Rapporteurs et équerres",
+        category: "fournitures"
+    },
+    {
+        id: 7,
+        url: "https://via.placeholder.com/400x300/8b4513/ffffff?text=Cahiers",
+        title: "Cahiers scolaires",
+        description: "Large gamme de cahiers",
+        category: "cahiers"
+    },
+    {
+        id: 8,
+        url: "https://via.placeholder.com/400x300/2c5530/ffffff?text=CM1",
+        title: "Cahier CM1",
+        description: "Multidisciplinaire",
+        category: "cahiers"
+    },
+    {
+        id: 9,
+        url: "https://via.placeholder.com/400x300/d4a76a/ffffff?text=CM2",
+        title: "Découverte du monde CM2",
+        description: "Géographie et sciences",
+        category: "livres"
+    }
 ];
