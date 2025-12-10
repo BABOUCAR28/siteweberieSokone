@@ -199,6 +199,12 @@ header {
     color: var(--gray-dark);
 }
 
+/* NAVIGATION CORRIGÉE */
+nav {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links {
     display: flex;
     align-items: center;
@@ -265,6 +271,9 @@ header {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--dark-color);
+    background: none;
+    border: none;
+    padding: 5px;
 }
 
 /* Hero Section */
@@ -1052,7 +1061,7 @@ footer {
     }
 }
 
-/* Responsive */
+/* RESPONSIVE DESIGN - MENU CORRIGÉ */
 @media (max-width: 992px) {
     .hero-content {
         grid-template-columns: 1fr;
@@ -1075,6 +1084,12 @@ footer {
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
+        order: 2;
+    }
+    
+    nav {
+        order: 3;
+        width: 100%;
     }
     
     .nav-links {
@@ -1089,7 +1104,8 @@ footer {
         box-shadow: var(--shadow-lg);
         transform: translateY(-100%);
         opacity: 0;
-        transition: var(--transition);
+        visibility: hidden;
+        transition: all 0.3s ease;
         z-index: 999;
         gap: 0;
     }
@@ -1097,6 +1113,7 @@ footer {
     .nav-links.active {
         transform: translateY(0);
         opacity: 1;
+        visibility: visible;
     }
     
     .nav-links li {
@@ -1108,6 +1125,16 @@ footer {
     .nav-links a {
         display: block;
         padding: 1rem;
+        border-bottom: 1px solid var(--gray-light);
+    }
+    
+    .nav-links li:last-child a {
+        border-bottom: none;
+    }
+    
+    .cart-icon {
+        margin-left: 0;
+        position: static;
     }
     
     .cart-actions {
@@ -1116,6 +1143,10 @@ footer {
     
     .form-row {
         grid-template-columns: 1fr;
+    }
+    
+    .header-container {
+        flex-wrap: wrap;
     }
 }
 
@@ -1146,5 +1177,15 @@ footer {
     
     .categories-grid {
         grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+    
+    .cart-item {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .cart-item-quantity {
+        justify-content: center;
     }
 }
