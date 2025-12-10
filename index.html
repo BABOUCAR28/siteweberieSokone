@@ -3,58 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Librerie Sokone - Librairie-Papeterie Professionnelle</title>
-    <meta name="description" content="Librairie-papeterie à Sokone : fournitures scolaires, livres, cahiers et matériel de bureau depuis 2015. Commandez en ligne avec livraison.">
-    <meta name="keywords" content="librairie Sokone, papeterie, fournitures scolaires, livres, cahiers, matériel bureau">
+    <title>Librairie Sokone | Fournitures Scolaires & Livres - Depuis 2015</title>
+    
+    <!-- Meta tags SEO -->
+    <meta name="description" content="Librairie-papeterie professionnelle à Sokone. Fournitures scolaires, livres, cahiers, matériel de bureau. Livraison à Sokone et environs.">
+    <meta name="keywords" content="librairie Sokone, papeterie, fournitures scolaires, livres, cahiers, matériel bureau, Sokone, Sénégal">
+    <meta name="author" content="Librairie Sokone - Monsieur Cory Sène">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://libreriesokone.com">
+    <meta property="og:title" content="Librairie Sokone - Librairie-Papeterie Professionnelle">
+    <meta property="og:description" content="Votre partenaire éducatif à Sokone depuis 2015. Fournitures scolaires, livres, cahiers et matériel de bureau.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&q=80">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://libreriesokone.com">
+    <meta property="twitter:title" content="Librairie Sokone - Librairie-Papeterie Professionnelle">
+    <meta property="twitter:description" content="Votre partenaire éducatif à Sokone depuis 2015. Fournitures scolaires, livres, cahiers et matériel de bureau.">
+    <meta property="twitter:image" content="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=1200&q=80">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/svgs/solid/book.svg">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Style pour les logos -->
+    <style>
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1a472a, #8b4513);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .logo-icon i {
+            font-size: 24px;
+            color: white;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-main {
+            font-family: 'Merriweather', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.2;
+        }
+        
+        .logo-sub {
+            font-size: 0.85rem;
+            color: #777777;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Galerie images */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            height: 300px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 25px;
+            transform: translateY(100%);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h4 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            font-family: 'Merriweather', serif;
+        }
+        
+        .gallery-overlay p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <!-- En-tête avec navigation -->
+    <!-- Header Professionnel -->
     <header>
         <div class="container header-container">
-            <a href="#" class="logo">
-                <i class="fas fa-book"></i>
+            <a href="#accueil" class="logo-container">
+                <div class="logo-icon">
+                    <i class="fas fa-book"></i>
+                </div>
                 <div class="logo-text">
                     <span class="logo-main">Librairie Sokone</span>
                     <span class="logo-sub">Monsieur Cory Sène</span>
                 </div>
             </a>
             
-            <div class="menu-toggle" id="menuToggle">
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
             
             <nav>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#accueil">Accueil</a></li>
                     <li><a href="#categories">Catégories</a></li>
                     <li><a href="#produits">Produits</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
                     <li><a href="#inventaire">Inventaire</a></li>
                     <li><a href="#commande">Commander</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li class="cart-icon" id="cartIcon">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cartCount">0</span>
+                    <li>
+                        <div class="cart-icon" id="cartIcon" role="button" aria-label="Panier">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
                     </li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Panier Modal -->
-    <div class="cart-modal" id="cartModal">
+    <!-- Modal Panier Professionnel -->
+    <div class="cart-modal" id="cartModal" aria-hidden="true">
         <div class="cart-content">
             <div class="cart-header">
                 <h2><i class="fas fa-shopping-cart"></i> Votre Panier</h2>
-                <button class="close-cart" id="closeCart">&times;</button>
+                <button class="close-cart" id="closeCart" aria-label="Fermer">&times;</button>
             </div>
             
             <div class="cart-items" id="cartItems">
-                <p id="emptyCartMessage">Votre panier est vide</p>
+                <p id="emptyCartMessage">Votre panier est vide. Commencez vos achats !</p>
             </div>
             
             <div class="cart-total">
@@ -63,207 +208,361 @@
             </div>
             
             <div class="cart-actions">
-                <button class="btn btn-secondary" id="continueShopping">Continuer vos achats</button>
-                <button class="btn btn-primary" id="checkoutBtn">Finaliser la commande</button>
+                <button class="btn btn-secondary" id="continueShopping">
+                    <i class="fas fa-arrow-left"></i> Continuer les achats
+                </button>
+                <button class="btn btn-primary" id="checkoutBtn">
+                    <i class="fas fa-check-circle"></i> Finaliser la commande
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- Section Hero -->
+    <!-- Hero Section Professionnelle -->
     <section class="hero" id="accueil">
         <div class="hero-overlay">
             <div class="container hero-content">
                 <div class="hero-text">
                     <h1>Librairie-Papeterie <span class="highlight">Sokone</span></h1>
-                    <p class="hero-subtitle">Depuis 2015, votre partenaire éducatif et professionnel à Sokone</p>
-                    <p class="hero-description">Fournitures scolaires, livres, cahiers, matériel de bureau et articles de papeterie. Qualité et service garantis.</p>
+                    <p class="hero-subtitle">Excellence Éducative depuis 2015</p>
+                    <p class="hero-description">
+                        Votre partenaire de confiance pour l'éducation et le travail. 
+                        Nous proposons une large gamme de produits de qualité : 
+                        fournitures scolaires, livres, cahiers, matériel de bureau et articles de papeterie.
+                    </p>
                     <div class="hero-buttons">
-                        <a href="#produits" class="btn btn-primary">Découvrir nos produits</a>
-                        <a href="#commande" class="btn btn-secondary">Commander en ligne</a>
+                        <a href="#produits" class="btn btn-primary">
+                            <i class="fas fa-book-open"></i> Découvrir nos produits
+                        </a>
+                        <a href="#commande" class="btn btn-secondary">
+                            <i class="fas fa-shopping-bag"></i> Commander en ligne
+                        </a>
+                    </div>
+                    
+                    <!-- Statistiques -->
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Depuis 2015</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-boxes"></i>
+                            <span>40+ Produits</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-users"></i>
+                            <span>1000+ Clients</span>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="hero-image">
-                    <!-- Image de librairie professionnelle -->
-                    <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Intérieur d'une librairie moderne avec étagères de livres">
+                    <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80" 
+                         alt="Librairie moderne avec étagères de livres et fournitures scolaires"
+                         loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Catégories -->
+    <!-- Catégories Professionnelles -->
     <section id="categories" class="categories">
         <div class="container">
             <div class="section-header">
-                <h2>Nos Catégories</h2>
-                <p>Découvrez notre large gamme de produits</p>
+                <h2>Nos Catégories de Produits</h2>
+                <p class="section-subtitle">Explorez notre sélection organisée par besoins</p>
             </div>
             
             <div class="categories-grid" id="categoriesGrid">
-                <!-- Les catégories seront générées par JavaScript -->
+                <!-- Généré par JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Section Produits -->
+    <!-- Produits Professionnels -->
     <section id="produits" class="products">
         <div class="container">
             <div class="section-header">
-                <h2>Nos Produits</h2>
-                <p>Une sélection de qualité pour tous vos besoins</p>
+                <h2>Nos Produits en Stock</h2>
+                <p class="section-subtitle">Des produits de qualité pour tous vos besoins éducatifs et professionnels</p>
+            </div>
+            
+            <div class="products-filter">
+                <div class="filter-active" id="currentCategory">
+                    Tous les produits
+                </div>
+                <div class="filter-stats">
+                    <span id="productsCount">0</span> produits disponibles
+                </div>
             </div>
             
             <div class="products-grid" id="productsGrid">
-                <!-- Les produits seront générés par JavaScript -->
+                <!-- Généré par JavaScript -->
             </div>
         </div>
     </section>
 
-    <!-- Formulaire de Commande -->
+    <!-- Galerie Professionnelle -->
+    <section id="galerie" class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Notre Librairie en Images</h2>
+                <p class="section-subtitle">Découvrez notre espace et nos produits en photos</p>
+            </div>
+            
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Généré par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulaire de Commande Professionnel -->
     <section id="commande" class="order-section">
         <div class="container">
             <div class="section-header">
                 <h2>Commande en Ligne</h2>
-                <p>Remplissez ce formulaire pour commander vos produits</p>
+                <p class="section-subtitle">Commandez vos produits en quelques clics, livraison incluse</p>
             </div>
             
             <div class="order-container">
                 <div class="order-summary">
-                    <h3>Résumé de votre commande</h3>
-                    <div class="order-items" id="orderItems">
-                        <p class="empty-order">Votre panier est vide. Ajoutez des produits ci-dessus.</p>
+                    <div class="summary-header">
+                        <h3><i class="fas fa-shopping-bag"></i> Récapitulatif</h3>
+                        <button class="btn btn-small btn-outline" id="editCart">
+                            <i class="fas fa-edit"></i> Modifier
+                        </button>
                     </div>
-                    <div class="order-total">
-                        <strong>Total:</strong> <span id="orderTotal">0 FCFA</span>
+                    
+                    <div class="order-items" id="orderItems">
+                        <div class="empty-order">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Votre panier est vide</p>
+                            <a href="#produits" class="btn btn-small btn-primary">
+                                <i class="fas fa-shopping-basket"></i> Voir les produits
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="order-details">
+                        <div class="detail-item">
+                            <span>Sous-total</span>
+                            <span id="orderSubtotal">0 FCFA</span>
+                        </div>
+                        <div class="detail-item">
+                            <span>Livraison</span>
+                            <span id="orderDelivery">0 FCFA</span>
+                        </div>
+                        <div class="detail-item total">
+                            <span>Total</span>
+                            <span id="orderTotal">0 FCFA</span>
+                        </div>
                     </div>
                 </div>
                 
-                <form class="order-form" id="orderForm">
-                    <h3>Informations personnelles</h3>
+                <form class="order-form" id="orderForm" novalidate>
+                    <div class="form-header">
+                        <h3><i class="fas fa-user-circle"></i> Informations personnelles</h3>
+                        <span class="required-label">* Champs obligatoires</span>
+                    </div>
                     
                     <div class="form-group">
-                        <label for="fullName">Nom complet *</label>
-                        <input type="text" id="fullName" name="fullName" required>
+                        <label for="fullName">
+                            <i class="fas fa-user"></i> Nom complet *
+                        </label>
+                        <input type="text" id="fullName" name="fullName" required 
+                               placeholder="Votre nom et prénom">
+                        <div class="form-error" id="nameError"></div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="phone">Téléphone *</label>
-                            <input type="tel" id="phone" name="phone" required>
+                            <label for="phone">
+                                <i class="fas fa-phone"></i> Téléphone *
+                            </label>
+                            <input type="tel" id="phone" name="phone" required 
+                                   placeholder="Ex: +221 78 017 64 27"
+                                   pattern="[\+0-9\s\-\(\)]+">
+                            <div class="form-error" id="phoneError"></div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email">
+                            <label for="email">
+                                <i class="fas fa-envelope"></i> Email
+                            </label>
+                            <input type="email" id="email" name="email" 
+                                   placeholder="votre@email.com">
+                            <div class="form-error" id="emailError"></div>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="address">Adresse de livraison *</label>
-                        <textarea id="address" name="address" rows="3" required></textarea>
+                        <label for="address">
+                            <i class="fas fa-map-marker-alt"></i> Adresse de livraison *
+                        </label>
+                        <textarea id="address" name="address" rows="3" required 
+                                  placeholder="Quartier, rue, numéro, ville..."></textarea>
+                        <div class="form-error" id="addressError"></div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="deliveryMethod">
+                                <i class="fas fa-truck"></i> Mode de livraison *
+                            </label>
+                            <select id="deliveryMethod" name="deliveryMethod" required>
+                                <option value="">Sélectionnez une option</option>
+                                <option value="pickup">Retrait en magasin (Gratuit)</option>
+                                <option value="delivery_sokone">Livraison à Sokone (500 FCFA)</option>
+                                <option value="delivery_region">Livraison dans la région (2000 FCFA)</option>
+                            </select>
+                            <div class="form-error" id="deliveryError"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="paymentMethod">
+                                <i class="fas fa-credit-card"></i> Paiement *
+                            </label>
+                            <select id="paymentMethod" name="paymentMethod" required>
+                                <option value="">Choisissez un moyen</option>
+                                <option value="cash">Espèces à la livraison</option>
+                                <option value="orange">Orange Money</option>
+                                <option value="wave">Wave</option>
+                                <option value="card">Carte bancaire</option>
+                            </select>
+                            <div class="form-error" id="paymentError"></div>
+                        </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="deliveryMethod">Méthode de livraison *</label>
-                        <select id="deliveryMethod" name="deliveryMethod" required>
-                            <option value="">Sélectionnez</option>
-                            <option value="pickup">Retrait en magasin</option>
-                            <option value="delivery_sokone">Livraison à Sokone (500 FCFA)</option>
-                            <option value="delivery_region">Livraison dans la région (2000 FCFA)</option>
-                        </select>
+                        <label for="notes">
+                            <i class="fas fa-sticky-note"></i> Instructions spéciales
+                        </label>
+                        <textarea id="notes" name="notes" rows="3" 
+                                  placeholder="Heure de livraison préférée, informations supplémentaires..."></textarea>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="paymentMethod">Moyen de paiement *</label>
-                        <select id="paymentMethod" name="paymentMethod" required>
-                            <option value="">Sélectionnez</option>
-                            <option value="cash">Espèces à la livraison</option>
-                            <option value="orange">Orange Money</option>
-                            <option value="wave">Wave</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="notes">Notes supplémentaires</label>
-                        <textarea id="notes" name="notes" rows="3" placeholder="Informations supplémentaires pour votre commande..."></textarea>
+                    <div class="form-terms">
+                        <input type="checkbox" id="terms" name="terms" required>
+                        <label for="terms">
+                            J'accepte les <a href="#" class="terms-link">conditions générales</a> et la 
+                            <a href="#" class="terms-link">politique de confidentialité</a> *
+                        </label>
+                        <div class="form-error" id="termsError"></div>
                     </div>
                     
                     <div class="form-submit">
-                        <button type="submit" class="btn btn-primary btn-large">Valider la commande</button>
+                        <button type="submit" class="btn btn-primary btn-large" id="submitOrder">
+                            <i class="fas fa-paper-plane"></i> Envoyer la commande
+                        </button>
+                        <p class="form-note">
+                            <i class="fas fa-info-circle"></i>
+                            Vous serez redirigé vers WhatsApp pour confirmation
+                        </p>
                     </div>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Section Inventaire -->
+    <!-- Inventaire Complet Professionnel -->
     <section id="inventaire" class="inventory-section">
         <div class="container">
             <div class="section-header">
                 <h2>Inventaire Complet</h2>
-                <p>Vue d'ensemble de notre stock disponible</p>
+                <p class="section-subtitle">Vue détaillée de notre stock avec valeurs totales</p>
+            </div>
+            
+            <div class="inventory-controls">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="inventorySearch" placeholder="Rechercher un produit...">
+                </div>
+                <div class="inventory-stats">
+                    <span id="totalProducts">0</span> produits | 
+                    <span id="totalValue">0 FCFA</span>
+                </div>
             </div>
             
             <div class="table-container">
                 <table class="inventory-table" id="inventoryTable">
                     <thead>
                         <tr>
-                            <th>Produit</th>
-                            <th>Catégorie</th>
-                            <th>Quantité</th>
-                            <th>Prix Unitaire</th>
-                            <th>Valeur Totale</th>
+                            <th>
+                                <i class="fas fa-box"></i> Produit
+                            </th>
+                            <th>
+                                <i class="fas fa-tag"></i> Catégorie
+                            </th>
+                            <th>
+                                <i class="fas fa-hashtag"></i> Quantité
+                            </th>
+                            <th>
+                                <i class="fas fa-money-bill-wave"></i> Prix Unitaire
+                            </th>
+                            <th>
+                                <i class="fas fa-calculator"></i> Valeur Totale
+                            </th>
                         </tr>
                     </thead>
                     <tbody id="inventoryBody">
-                        <!-- Les lignes seront générées par JavaScript -->
+                        <!-- Généré par JavaScript -->
                     </tbody>
                 </table>
             </div>
             
             <div class="inventory-total">
                 <div class="total-card">
-                    <h3>Valeur totale de l'inventaire</h3>
+                    <h3><i class="fas fa-chart-line"></i> Valeur totale de l'inventaire</h3>
                     <p class="total-amount" id="totalInventoryValue">0 FCFA</p>
+                    <p class="total-note">Basé sur les quantités et prix actuels</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Section Contact -->
+    <!-- Contact Professionnel -->
     <section id="contact" class="contact-section">
         <div class="container">
             <div class="section-header">
                 <h2>Contact & Informations</h2>
-                <p>Nous sommes à votre service</p>
+                <p class="section-subtitle">Nous sommes à votre service pour tous vos besoins</p>
             </div>
             
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-card">
-                        <h3><i class="fas fa-store"></i> Notre Librairie</h3>
+                        <h3><i class="fas fa-store-alt"></i> Notre Établissement</h3>
                         <div class="contact-details">
                             <div class="contact-item">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <h4>Adresse</h4>
-                                    <p>Avenue des Livres, Quartier Centre<br>Sokone, Sénégal</p>
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>Adresse de la librairie</h4>
+                                    <p>Avenue des Livres, Quartier Centre</p>
+                                    <p>Sokone, Sénégal</p>
                                 </div>
                             </div>
                             
                             <div class="contact-item">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <h4>Téléphone</h4>
-                                    <p>+221 78 017 64 27</p>
-                                    <p>+221 77 030 28 37 (WhatsApp)</p>
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>Téléphones de contact</h4>
+                                    <p><strong>Principal:</strong> +221 78 017 64 27</p>
+                                    <p><strong>WhatsApp:</strong> +221 77 030 28 37</p>
                                 </div>
                             </div>
                             
                             <div class="contact-item">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h4>Email</h4>
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-item-content">
+                                    <h4>Adresse email</h4>
                                     <p>senebaboucar49@gmail.com</p>
+                                    <p class="contact-note">Réponse sous 24h</p>
                                 </div>
                             </div>
                         </div>
@@ -285,78 +584,556 @@
                                 <span>10h00 - 14h00</span>
                             </div>
                         </div>
+                        
+                        <div class="emergency-contact">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>En cas d'urgence, contactez-nous sur WhatsApp</p>
+                        </div>
+                    </div>
+                    
+                    <div class="services-card">
+                        <h3><i class="fas fa-concierge-bell"></i> Nos Services</h3>
+                        <ul class="services-list">
+                            <li><i class="fas fa-check-circle"></i> Livraison à domicile</li>
+                            <li><i class="fas fa-check-circle"></i> Commandes sur mesure</li>
+                            <li><i class="fas fa-check-circle"></i> Conseils personnalisés</li>
+                            <li><i class="fas fa-check-circle"></i> Réservation de produits</li>
+                            <li><i class="fas fa-check-circle"></i> Services aux écoles</li>
+                        </ul>
                     </div>
                 </div>
                 
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.284332931491!2d-16.37786172469206!3d14.730804785707472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec177e5769ab08b%3A0x4b2a3b2c5d5c6b7d!2sSokone%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2sfr!4v1691245678901!5m2!1sfr!2sfr" 
-                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    <div class="map-header">
+                        <h4><i class="fas fa-map-marked-alt"></i> Localisation sur la carte</h4>
+                        <a href="https://goo.gl/maps/example" target="_blank" class="btn btn-small btn-outline">
+                            <i class="fas fa-directions"></i> Itinéraire
+                        </a>
+                    </div>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3858.284332931491!2d-16.37786172469206!3d14.730804785707472!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xec177e5769ab08b%3A0x4b2a3b2c5d5c6b7d!2sSokone%2C%20S%C3%A9n%C3%A9gal!5e0!3m2!1sfr!2sfr!4v1691245678901!5m2!1sfr!2sfr" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Carte de localisation de la Librairie Sokone">
                     </iframe>
+                    
+                    <div class="map-info">
+                        <p><i class="fas fa-info-circle"></i> Situé au cœur de Sokone, facile d'accès</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Professionnel -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <a href="#" class="footer-logo">
-                        <i class="fas fa-book"></i>
+                    <a href="#accueil" class="footer-logo">
+                        <div class="logo-icon" style="background: linear-gradient(135deg, #c19a6b, #d4a76a);">
+                            <i class="fas fa-book"></i>
+                        </div>
                         <div>
                             <span class="logo-main">Librairie Sokone</span>
-                            <span class="logo-sub">Depuis 2015</span>
+                            <span class="logo-sub">Excellence depuis 2015</span>
                         </div>
                     </a>
-                    <p class="footer-description">Votre librairie-papeterie de confiance à Sokone. Nous nous engageons à fournir des produits de qualité et un service exceptionnel.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    
+                    <p class="footer-description">
+                        Votre librairie-papeterie de confiance à Sokone. 
+                        Nous nous engageons à fournir des produits de qualité 
+                        et un service exceptionnel à chaque client.
+                    </p>
+                    
+                    <div class="footer-social">
+                        <h4>Suivez-nous</h4>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/221780176427" class="social-link" aria-label="WhatsApp" target="_blank">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Navigation</h3>
+                    <h3>Navigation Rapide</h3>
                     <ul class="footer-links">
-                        <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
-                        <li><a href="#categories"><i class="fas fa-chevron-right"></i> Catégories</a></li>
-                        <li><a href="#produits"><i class="fas fa-chevron-right"></i> Produits</a></li>
-                        <li><a href="#commande"><i class="fas fa-chevron-right"></i> Commander</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li>
+                            <a href="#accueil">
+                                <i class="fas fa-chevron-right"></i> Accueil
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#categories">
+                                <i class="fas fa-chevron-right"></i> Catégories
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#produits">
+                                <i class="fas fa-chevron-right"></i> Produits
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#galerie">
+                                <i class="fas fa-chevron-right"></i> Galerie
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#commande">
+                                <i class="fas fa-chevron-right"></i> Commander
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact">
+                                <i class="fas fa-chevron-right"></i> Contact
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Contact</h3>
+                    <h3>Informations Utiles</h3>
                     <ul class="footer-contact">
-                        <li><i class="fas fa-map-marker-alt"></i> Sokone, Sénégal</li>
-                        <li><i class="fas fa-phone"></i> +221 78 017 64 27</li>
-                        <li><i class="fas fa-envelope"></i> senebaboucar49@gmail.com</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Sokone, Sénégal</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+221 78 017 64 27</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>senebaboucar49@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Lun-Ven: 8h30-18h30</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-truck"></i>
+                            <span>Livraison disponible</span>
+                        </li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h3>Moyens de paiement</h3>
+                    <h3>Moyens de Paiement</h3>
                     <div class="payment-methods">
-                        <span class="payment-method"><i class="fas fa-money-bill-wave"></i> Espèces</span>
-                        <span class="payment-method"><i class="fab fa-orange"></i> Orange Money</span>
-                        <span class="payment-method"><i class="fas fa-wave-square"></i> Wave</span>
-                        <span class="payment-method"><i class="fas fa-credit-card"></i> Carte bancaire</span>
+                        <div class="payment-method">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <span>Espèces</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fab fa-orange"></i>
+                            <span>Orange Money</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-wave-square"></i>
+                            <span>Wave</span>
+                        </div>
+                        <div class="payment-method">
+                            <i class="fas fa-credit-card"></i>
+                            <span>Cartes bancaires</span>
+                        </div>
+                    </div>
+                    
+                    <div class="newsletter">
+                        <h4>Newsletter</h4>
+                        <p>Recevez nos offres spéciales</p>
+                        <div class="newsletter-form">
+                            <input type="email" placeholder="Votre email">
+                            <button type="submit" class="btn btn-small btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Librairie Sokone - Tous droits réservés.</p>
-                <p>Conçu avec <i class="fas fa-heart"></i> pour la communauté de Sokone</p>
+                <div class="footer-copyright">
+                    <p>&copy; 2023 Librairie Sokone. Tous droits réservés.</p>
+                    <p>Monsieur Cory Sène - SIRET: 123 456 789 00000</p>
+                </div>
+                
+                <div class="footer-legal">
+                    <a href="#" class="legal-link">Mentions légales</a>
+                    <a href="#" class="legal-link">Politique de confidentialité</a>
+                    <a href="#" class="legal-link">Conditions générales</a>
+                </div>
+                
+                <div class="footer-madeby">
+                    <p>
+                        Conçu avec <i class="fas fa-heart"></i> pour la communauté de Sokone
+                    </p>
+                </div>
             </div>
         </div>
     </footer>
 
+    <!-- Loader -->
+    <div class="loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-icon">
+                <i class="fas fa-book"></i>
+            </div>
+            <p>Chargement de la librairie...</p>
+        </div>
+    </div>
+
     <!-- Scripts -->
     <script src="data.js"></script>
     <script src="script.js"></script>
+    
+    <!-- Inline scripts pour améliorations immédiates -->
+    <script>
+        // Styles pour les nouveaux éléments
+        const style = document.createElement('style');
+        style.textContent = `
+            .hero-stats {
+                display: flex;
+                gap: 30px;
+                margin-top: 40px;
+                flex-wrap: wrap;
+            }
+            
+            .stat-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background: rgba(255, 255, 255, 0.1);
+                padding: 12px 20px;
+                border-radius: 12px;
+                backdrop-filter: blur(10px);
+            }
+            
+            .stat-item i {
+                font-size: 1.2rem;
+                color: #c19a6b;
+            }
+            
+            .stat-item span {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+            
+            .products-filter {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 30px;
+                padding: 20px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            }
+            
+            .filter-active {
+                font-weight: 600;
+                color: #1a472a;
+                font-size: 1.1rem;
+            }
+            
+            .filter-stats {
+                color: #777777;
+                font-size: 0.9rem;
+            }
+            
+            .summary-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            
+            .order-details {
+                background: #f8f5f0;
+                padding: 20px;
+                border-radius: 12px;
+                margin-top: 20px;
+            }
+            
+            .detail-item {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 10px;
+                font-size: 0.95rem;
+            }
+            
+            .detail-item.total {
+                font-weight: 700;
+                font-size: 1.1rem;
+                margin-top: 10px;
+                padding-top: 10px;
+                border-top: 2px solid #e0e0e0;
+            }
+            
+            .form-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 25px;
+            }
+            
+            .required-label {
+                font-size: 0.8rem;
+                color: #777777;
+            }
+            
+            .form-error {
+                color: #d32f2f;
+                font-size: 0.85rem;
+                margin-top: 5px;
+                display: none;
+            }
+            
+            .form-terms {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                margin: 25px 0;
+            }
+            
+            .form-terms label {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            
+            .terms-link {
+                color: #1a472a;
+                text-decoration: underline;
+            }
+            
+            .form-note {
+                font-size: 0.9rem;
+                color: #777777;
+                margin-top: 15px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            
+            .inventory-controls {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 30px;
+            }
+            
+            .search-box {
+                position: relative;
+                width: 300px;
+            }
+            
+            .search-box i {
+                position: absolute;
+                left: 15px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: #777777;
+            }
+            
+            .search-box input {
+                width: 100%;
+                padding: 12px 15px 12px 45px;
+                border: 2px solid #e0e0e0;
+                border-radius: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .inventory-stats {
+                font-weight: 500;
+                color: #1a472a;
+            }
+            
+            .total-note {
+                font-size: 0.9rem;
+                opacity: 0.8;
+                margin-top: 10px;
+            }
+            
+            .contact-icon {
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(135deg, rgba(26, 71, 42, 0.1), rgba(193, 154, 107, 0.1));
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 15px;
+                flex-shrink: 0;
+            }
+            
+            .contact-icon i {
+                color: #1a472a;
+                font-size: 1.2rem;
+            }
+            
+            .contact-note {
+                font-size: 0.85rem;
+                color: #777777;
+                margin-top: 5px;
+            }
+            
+            .emergency-contact {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background: rgba(255, 193, 7, 0.1);
+                padding: 15px;
+                border-radius: 12px;
+                margin-top: 25px;
+            }
+            
+            .emergency-contact i {
+                color: #ff9800;
+                font-size: 1.2rem;
+            }
+            
+            .emergency-contact p {
+                font-size: 0.9rem;
+                margin: 0;
+            }
+            
+            .services-list {
+                list-style: none;
+                padding: 0;
+                margin-top: 20px;
+            }
+            
+            .services-list li {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 12px;
+                font-size: 0.95rem;
+            }
+            
+            .services-list li i {
+                color: #2e7d32;
+            }
+            
+            .map-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 15px;
+            }
+            
+            .map-info {
+                background: #f8f5f0;
+                padding: 15px;
+                border-radius: 0 0 16px 16px;
+                font-size: 0.9rem;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .footer-social h4 {
+                margin-bottom: 15px;
+                font-size: 1rem;
+            }
+            
+            .newsletter {
+                margin-top: 25px;
+            }
+            
+            .newsletter h4 {
+                margin-bottom: 10px;
+                font-size: 1rem;
+            }
+            
+            .newsletter p {
+                font-size: 0.9rem;
+                color: rgba(255, 255, 255, 0.7);
+                margin-bottom: 15px;
+            }
+            
+            .newsletter-form {
+                display: flex;
+                gap: 10px;
+            }
+            
+            .newsletter-form input {
+                flex: 1;
+                padding: 10px 15px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+            }
+            
+            .newsletter-form input::placeholder {
+                color: rgba(255, 255, 255, 0.5);
+            }
+            
+            .footer-copyright {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            
+            .footer-legal {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+                margin-bottom: 20px;
+            }
+            
+            .legal-link {
+                color: rgba(255, 255, 255, 0.7);
+                font-size: 0.85rem;
+                text-decoration: none;
+            }
+            
+            .legal-link:hover {
+                color: #c19a6b;
+            }
+            
+            .footer-madeby {
+                text-align: center;
+                color: rgba(255, 255, 255, 0.5);
+                font-size: 0.85rem;
+            }
+            
+            .footer-madeby i {
+                color: #ff6b6b;
+            }
+            
+            .loader-content {
+                text-align: center;
+            }
+            
+            .loader-icon {
+                font-size: 3rem;
+                color: #1a472a;
+                margin-bottom: 20px;
+                animation: pulse 1.5s infinite;
+            }
+            
+            .loader p {
+                color: #777777;
+                font-size: 1.1rem;
+            }
+            
+            @keyframes pulse {
+                0%, 100% { opacity: 1; }
+                50% { opacity: 0.5; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
